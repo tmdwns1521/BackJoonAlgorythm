@@ -10,9 +10,11 @@ for i in command:
         cnt += 1
     if ")" == i:
         cnt -= 1
-        if stack[-1] == "(":
+        pop_data = stack.pop()
+        if pop_data == "(":
             result += cnt
         else:
             result += 1
+        stack.append(pop_data)
     stack.append(i)
 print(result)
