@@ -10,6 +10,7 @@ class Solution {
         for (int r : reserve) {
             clothes[r - 1]++;
         }
+        int answer = 0;
         for (int i = 0; i < n; i++) {
             if (clothes[i] == 0) {
                 if (0 < i && clothes[i - 1] == 2) {
@@ -20,10 +21,9 @@ class Solution {
                     clothes[i + 1]--;
                 }
             }
-        }
-        int answer = 0;
-        for (int c : clothes) {
-            if (c > 0) answer++;
+            if (clothes[i] > 0) {
+                answer++;
+            }
         }
         return answer;
     }
